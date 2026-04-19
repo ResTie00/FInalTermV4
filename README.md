@@ -53,8 +53,6 @@ Then open the `.env` file and put in your database credentials:
 DB_URL=jdbc:postgresql://localhost:5432/job_application_db?options=-c%20lc_messages=en_US.UTF-8
 DB_USERNAME=your_username
 DB_PASSWORD=your_password
-ADMIN_USERNAME=admin
-ADMIN_PASSWORD=admin123
 ```
 
 Then build and run:
