@@ -1,3 +1,4 @@
+[README (1).md](https://github.com/user-attachments/files/26869366/README.1.md)
 # FinalTermV4
 
 This is my final project for the Programming Languages course. It's a console app where you can manage job applications (add, delete, update, view them). Everything is stored in a PostgreSQL database.
@@ -13,7 +14,7 @@ You run the program and it shows you a menu with options:
 3. See all applications
 4. Find one by id
 5. Update an existing one
-6. Delete all of them
+6. Delete all of them (asks for confirmation)
 7. Exit
 
 Each application has: an id, a name, job title, job description, status (PENDING / APPROVED / REJECTED / PAUSED), and a date.
@@ -23,7 +24,7 @@ Each application has: an id, a name, job title, job description, status (PENDING
 ## How to run it
 
 You'll need:
-- Java (17 or newer)
+- Java 17 or newer
 - Maven
 - PostgreSQL
 
@@ -91,43 +92,39 @@ src/main/java/com/
 - PostgreSQL
 - JDBC (no Hibernate or anything like that, just plain SQL)
 - dotenv-java (to read the .env file)
----
-
-<a href="https://docs.google.com/presentation/d/13wLGoQRQSEnSqGpqGMQmRpV1oNo6KJ8v/edit?usp=drive_link&ouid=112504527904248519370&rtpof=true&sd=true"> PRESENTATION</a>
-
----
-## Project made by: 
-Adilet Teshebaev 
-COMSE-25
----
-
-<img width="1803" height="889" alt="image" src="https://github.com/user-attachments/assets/6622870d-ec81-4d0b-b8eb-d859ee15446b" />
 
 ---
 
-<img width="1800" height="680" alt="image" src="https://github.com/user-attachments/assets/561061c9-52fe-4343-98e3-127449414c56" /> 
+## Documentation
 
---- 
+### Modules and their responsibilities
 
-<img width="1807" height="772" alt="image" src="https://github.com/user-attachments/assets/08bf1234-f377-44d9-9778-d4fb5131e157" />
+The project is split into 3 main layers. `DB.java` handles all direct communication with the database using JDBC — every SQL query (INSERT, SELECT, UPDATE, DELETE) lives here. `ApplicationService.java` sits on top of it and handles validation logic — it checks for duplicates, missing fields, and throws the right exception before anything reaches the database. `Main.java` runs the loop, shows the menu, reads user input, and calls the service.
 
---- 
+The model layer has `JobApplication` as the main entity, `ApplicationStatus` as an enum with 4 values (PENDING, APPROVED, REJECTED, PAUSED), `BaseEntity` as a parent class, and `Printable` as an interface that `JobApplication` implements.
 
-<img width="1804" height="783" alt="image" src="https://github.com/user-attachments/assets/207aaca6-b05a-4efd-88ff-edf15b030dba" />
+### Data structure
 
---- 
+Each job application is stored as a row in the `job_applications` table with 6 fields: id (BIGINT), application_name, job_name, job_description, status, and date. On the Java side it maps directly to the `JobApplication` class.
 
-<img width="1806" height="818" alt="image" src="https://github.com/user-attachments/assets/b1efc139-99b4-4863-af5c-dfd08db2f469" />
+### Challenges faced
 
---- 
+**Error handling without crashing** — the hardest part was making the program recover from errors instead of just crashing. The solution was catching exceptions at the right level: database errors are caught in `DB.java` and converted to custom exceptions, then caught again in `Main.java` inside the menu loop so the program just prints the error and continues.
 
-<img width="1805" height="685" alt="image" src="https://github.com/user-attachments/assets/c9b47f94-20b5-4a37-8d5d-b6c250b9cce3" />
+**Finding the right SQL error codes** — when working with PostgreSQL and JDBC, a generic `SQLException` is thrown for everything. To tell apart a duplicate key error from a connection failure, I had to dig into `SQLException` and check the SQLState codes (for example, `23505` means unique constraint violation). This led to creating `DBExceptionHandler` which maps these codes to specific custom exceptions.
 
---- 
+**Reading the .env file** — storing credentials directly in code is bad practice but reading from a config file wasn't obvious at first. Found the `dotenv-java` library which loads a `.env` file and makes values available via `Dotenv.get()`.
 
-<img width="1804" height="473" alt="image" src="https://github.com/user-attachments/assets/8466dbd8-1fb9-408b-b312-6d2f26643d43" />
+**Learning JDBC from scratch** — had no prior experience with JDBC. Had to learn how `DriverManager`, `Connection`, `PreparedStatement`, and `ResultSet` work together. Used `PreparedStatement` for all queries to avoid SQL injection.
 
---- 
+---
 
+## Presentation
 
+[Click here to view the presentation](https://docs.google.com/presentation/d/13wLGoQRQSEnSqGpqGMQmRpV1oNo6KJ8v/edit?usp=drive_link&ouid=112504527904248519370&rtpof=true&sd=true)
 
+---
+
+## Author
+
+ResTie00 — Final Term Project, 2024/2025
