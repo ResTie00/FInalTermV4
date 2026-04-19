@@ -96,6 +96,10 @@ src/main/java/com/
 <a href="https://docs.google.com/presentation/d/13wLGoQRQSEnSqGpqGMQmRpV1oNo6KJ8v/edit?usp=drive_link&ouid=112504527904248519370&rtpof=true&sd=true"> PRESENTATION</a>
 
 ---
+## Project made by: 
+Adilet Teshebaev 
+COMSE-25
+---
 
 <img width="1803" height="889" alt="image" src="https://github.com/user-attachments/assets/6622870d-ec81-4d0b-b8eb-d859ee15446b" />
 
