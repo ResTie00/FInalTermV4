@@ -99,7 +99,7 @@ src/main/java/com/
 
 ### Modules and their responsibilities
 
-The project is split into 3 main layers. `DB.java` handles all direct communication with the database using JDBC — every SQL query (INSERT, SELECT, UPDATE, DELETE) lives here. `ApplicationService.java` sits on top of it and handles validation logic — it checks for duplicates, missing fields, and throws the right exception before anything reaches the database. `Main.java` runs the loop, shows the menu, reads user input, and calls the service.
+The project is split into 3 main layers. `DB.java` handles all direct communication with the database using JDBC every SQL query (INSERT, SELECT, UPDATE, DELETE) lives here. `ApplicationService.java` sits on top of it and handles validation logic, it checks for duplicates, missing fields, and throws the right exception before anything reaches the database. `Main.java` runs the loop, shows the menu, reads user input, and calls the service.
 
 The model layer has `JobApplication` as the main entity, `ApplicationStatus` as an enum with 4 values (PENDING, APPROVED, REJECTED, PAUSED), `BaseEntity` as a parent class, and `Printable` as an interface that `JobApplication` implements.
 
@@ -109,13 +109,13 @@ Each job application is stored as a row in the `job_applications` table with 6 f
 
 ### Challenges faced
 
-**Error handling without crashing** — the hardest part was making the program recover from errors instead of just crashing. The solution was catching exceptions at the right level: database errors are caught in `DB.java` and converted to custom exceptions, then caught again in `Main.java` inside the menu loop so the program just prints the error and continues.
+**Error handling without crashing**: the hardest part was making the program recover from errors instead of just crashing. The solution was catching exceptions at the right level: database errors are caught in `DB.java` and converted to custom exceptions, then caught again in `Main.java` inside the menu loop so the program just prints the error and continues.
 
-**Finding the right SQL error codes** — when working with PostgreSQL and JDBC, a generic `SQLException` is thrown for everything. To tell apart a duplicate key error from a connection failure, I had to dig into `SQLException` and check the SQLState codes (for example, `23505` means unique constraint violation). This led to creating `DBExceptionHandler` which maps these codes to specific custom exceptions.
+**Finding the right SQL error codes**: when working with PostgreSQL and JDBC, a generic `SQLException` is thrown for everything. To tell apart a duplicate key error from a connection failure, I had to dig into `SQLException` and check the SQLState codes (for example, `23505` means unique constraint violation). This led to creating `DBExceptionHandler` which maps these codes to specific custom exceptions.
 
-**Reading the .env file** — storing credentials directly in code is bad practice but reading from a config file wasn't obvious at first. Found the `dotenv-java` library which loads a `.env` file and makes values available via `Dotenv.get()`.
+**Reading the .env file**:  storing credentials directly in code is bad practice but reading from a config file wasn't obvious at first. Found the `dotenv-java` library which loads a `.env` file and makes values available via `Dotenv.get()`.
 
-**Learning JDBC from scratch** — had no prior experience with JDBC. Had to learn how `DriverManager`, `Connection`, `PreparedStatement`, and `ResultSet` work together. Used `PreparedStatement` for all queries to avoid SQL injection.
+**Learning JDBC from scratch**: had no prior experience with JDBC. Had to learn how `DriverManager`, `Connection`, `PreparedStatement`, and `ResultSet` work together. Used `PreparedStatement` for all queries to avoid SQL injection.
 
 ---
 
