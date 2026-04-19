@@ -128,3 +128,31 @@ Each job application is stored as a row in the `job_applications` table with 6 f
 ## Author
 
 ResTie00 — Final Term Project, 2024/2025
+
+--- 
+
+<img width="1803" height="889" alt="image" src="https://github.com/user-attachments/assets/c21104e7-2137-46e5-94e4-fdf7890ad0c0" />
+
+--- 
+
+<img width="1800" height="680" alt="image" src="https://github.com/user-attachments/assets/b653a2ff-262e-4081-a82a-b50ebdf3be3c" />
+
+--- 
+
+<img width="1807" height="772" alt="image" src="https://github.com/user-attachments/assets/6e817bcb-8844-44d3-b6e8-e0f5b8d57313" />
+
+--- 
+
+<img width="1804" height="783" alt="image" src="https://github.com/user-attachments/assets/ebc5951c-8194-4bbb-bf90-eab8d52bf000" />
+
+--- 
+
+<img width="1806" height="818" alt="image" src="https://github.com/user-attachments/assets/968e1cb0-5a4f-4f8a-8d68-c6ce5761c3df" />
+
+--- 
+
+<img width="1805" height="685" alt="image" src="https://github.com/user-attachments/assets/b2d8127f-76a8-4aab-a976-9cfdf6e11ea8" />
+
+--- 
+
+<img width="1804" height="473" alt="image" src="https://github.com/user-attachments/assets/8082251e-2d9c-4119-87f7-1b900f56bd55" />
