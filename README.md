@@ -91,3 +91,30 @@ src/main/java/com/
 - PostgreSQL
 - JDBC (no Hibernate or anything like that, just plain SQL)
 - dotenv-java (to read the .env file)
+---
+
+<img width="1803" height="889" alt="image" src="https://github.com/user-attachments/assets/6622870d-ec81-4d0b-b8eb-d859ee15446b" />
+
+---
+
+<img width="1800" height="680" alt="image" src="https://github.com/user-attachments/assets/561061c9-52fe-4343-98e3-127449414c56" /> 
+
+--- 
+
+<img width="1807" height="772" alt="image" src="https://github.com/user-attachments/assets/08bf1234-f377-44d9-9778-d4fb5131e157" />
+
+--- 
+
+<img width="1804" height="783" alt="image" src="https://github.com/user-attachments/assets/207aaca6-b05a-4efd-88ff-edf15b030dba" />
+
+--- 
+
+<img width="1806" height="818" alt="image" src="https://github.com/user-attachments/assets/b1efc139-99b4-4863-af5c-dfd08db2f469" />
+
+--- 
+
+<img width="1805" height="685" alt="image" src="https://github.com/user-attachments/assets/c9b47f94-20b5-4a37-8d5d-b6c250b9cce3" />
+
+--- 
+
+<img width="1804" height="473" alt="image" src="https://github.com/user-attachments/assets/8466dbd8-1fb9-408b-b312-6d2f26643d43" />
