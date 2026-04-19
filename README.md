@@ -1,4 +1,4 @@
-[README (1).md](https://github.com/user-attachments/files/26869366/README.1.md)
+
 # FinalTermV4
 
 This is my final project for the Programming Languages course. It's a console app where you can manage job applications (add, delete, update, view them). Everything is stored in a PostgreSQL database.
